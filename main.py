@@ -21,8 +21,8 @@ def create_task(task:Task):
 tasks= []
 
 
-@app.get_tasks('/tasks/',response_model=List[Task])
-async def read():
+@app.get('/tasks/',response_model=List[Task])
+async def read_tasks():
     return {"hello":"world"}
 
 
