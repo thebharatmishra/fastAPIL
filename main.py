@@ -39,6 +39,7 @@ def update_task(task_id:UUID,task_update:Task):
         if task.id == task_id:
             updated_task= task.copy(update=task_update.dict(exclude_unset=True))
             tasks[idx]=updated_task
+            return updated_task
     raise HTTPException(status_code=404,detail="Task not found")
 
 if __name__=="__main__":
