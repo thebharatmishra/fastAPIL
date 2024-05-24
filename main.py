@@ -12,10 +12,16 @@ class Task(BaseModel):
     completed:bool=False
 
 
+@app.post('/tasks/',response_class=Task)
+def create_task(task:Task):
+    task.id= uuid4
+    tasks.apped(task)
+    return task
+
 tasks= []
 
 
-@app.get('/')
+@app.get_tasks('/tasks/',response_model=List[Task])
 async def read():
     return {"hello":"world"}
 
