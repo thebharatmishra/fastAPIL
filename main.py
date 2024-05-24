@@ -31,7 +31,7 @@ def read_task(task_id:UUID):
     for task in tasks:
         if task.id == task_id:
             return task
-
+    return HTTPException(status_code=404,detail="Task not found")
 
 if __name__=="__main__":
     import uvicorn
