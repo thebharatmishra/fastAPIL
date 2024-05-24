@@ -1,6 +1,11 @@
 from fastapi import FastAPI
-
+from pydantic import BaseModel
+from typing import List,Optional
+from uuid import UUID,uuid4
 app = FastAPI()
+
+tasks= []
+
 
 @app.get('/')
 async def read():
