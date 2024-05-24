@@ -37,8 +37,9 @@ def read_task(task_id:UUID):
 def update_task(task_id:UUID,task_update:Task):
     for idx, tasks in enumerate(tasks):
         if task.id == task_id:
-            updated_task= task.copy(update=task_update.dict(exclude_unset))
-
+            updated_task= task.copy(update=task_update.dict(exclude_unset=True))
+            tasks[idx]=updated_task
+    raise HTTPException(status_code=404,detail="Task not found")
 
 if __name__=="__main__":
     import uvicorn
