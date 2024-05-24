@@ -26,6 +26,12 @@ async def read_tasks():
     return {"hello":"world"}
 
 
+@app.get("/tasks/{task}",response_model=Task)
+def read_task(task_id:UUID):
+    for task in tasks:
+        if task.id == task_id:
+            return task
+
 if __name__=="__main__":
     import uvicorn
 
